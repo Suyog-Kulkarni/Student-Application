@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Student>
+
+<div class="row pb-2">
+    <div class="col-6"></div>
+    <div class="col-6 text-end">
+        <a asp-controller="Student" asp-action="AddStudent" class="btn btn-primary">
+            <i class="bi bi-plus-circle"></i> &nbsp; Regsiter New Student
+        </a>
+    </div>
+</div>
+<div class="container mt-4">
+    @foreach (var student in Model)
+    {
+        <div class="card">
+            <div class="card-header">
+                <h1 class="card-title">@student.Name</h1>
+                
+            </div>
+            <div class="card-body">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <strong>Phone:</strong> @student.Phone
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Email:</strong> @student.Email
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Address:</strong> @student.Address
+                    </li>
+                    <li class="list-group-item">
+                        <strong>City:</strong> @student.City
+                    </li>
+                </ul>
+            </div>
+            <div class="w-50 btn-group pb-2" role="group">
+                <a asp-controller="Student" asp-action="Edit" asp-route-id ="@student.ID"
+                   class="btn btn-primary mx-2">
+                    <i class="bi bi-pencil-square"></i>Edit
+                </a>
+                <a asp-controller="Student" asp-action="Delete" asp-route-id ="@student.ID"
+                   class="btn btn-danger mx-2">
+                    <i class="bi bi-trash-fill"></i>Delete
+                </a>
+            </div>
+            
+        </div>
+    }
+</div>
+
+
